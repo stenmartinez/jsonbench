@@ -10,6 +10,7 @@
         <module name="jsonbench-gson" />
         <module name="jsonbench-jackson" />
         <module name="jsonbench-liferay" />
+        <module name="jsonbench-runner" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

@@ -13,6 +13,7 @@
 		<module>jsonbench-jackson</module>
 		<module>jsonbench-common</module>
 		<module>jsonbench-gson</module>
+		<module>jsonbench-runner</module>
 	</modules>
 
 	<dependencyManagement>

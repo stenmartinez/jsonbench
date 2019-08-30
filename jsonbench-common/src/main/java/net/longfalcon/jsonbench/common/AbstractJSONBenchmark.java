@@ -1,9 +1,9 @@
 package net.longfalcon.jsonbench.common;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URL;
 import java.util.HashSet;
 
 /**
@@ -19,14 +19,12 @@ public abstract class AbstractJSONBenchmark {
 	public abstract void exec();
 
 	protected BufferedReader getJsonFileReader() throws IOException {
-		File testFile = new File("files/twitter.json");
+		URL testFile = AbstractJSONBenchmark.class.getResource("twitter.json");
 
-		if (testFile.exists() && !testFile.isDirectory()) {
-			BufferedReader reader = new BufferedReader(new FileReader(testFile));
-
-			return reader;
-		} else {
-			throw new IllegalStateException("File " + testFile.getAbsolutePath() + " is invalid" );
+		try {
+			return new BufferedReader(new InputStreamReader(testFile.openStream()));
+		} catch (Exception e) {
+			throw new IllegalStateException("File " + testFile.getFile() + " is invalid" );
 		}
 	}
 }
